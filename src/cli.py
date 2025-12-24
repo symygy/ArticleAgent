@@ -47,9 +47,15 @@ def main():
 
     article = fetch_article(args.url)
     method = "openai" if args.openai else "auto"
-    summary = summarize(article.get("text", ""), method=method, max_sentences=args.sentences)
+    summary, used_openai = summarize(article.get("text", ""), method=method, max_sentences=args.sentences)
     path = write_output(article, summary)
     print("Wygenerowano plik:", path)
+
+    if used_openai:
+        print("Użyto OpenAI (OPENAI_API_KEY) do wygenerowania streszczenia.")
+    else:
+        print("Użyto lokalnego ekstraktywnego streszczania (brak klucza OpenAI lub fallback).")
+
     if args.publish:
         try:
             git_commit(path)

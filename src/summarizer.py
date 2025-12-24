@@ -91,12 +91,19 @@ def extractive_summarize(text, max_sentences=6):
 
 
 def summarize(text, method="auto", max_sentences=6):
-    """Interfejs do streszczania. Jeśli dostępny OPENAI API KEY, domyślnie używa OpenAI."""
+    """Interfejs do streszczania. Zwraca krotkę (summary_text, used_openai: bool).
+    Jeśli dostępny OPENAI API KEY i metoda pozwala, próbuje użyć OpenAI i zwraca True.
+    W przypadku błędu lub braku klucza zwraca ekstraktywne streszczenie i False."""
+    used_openai = False
     if method == "openai" or (method == "auto" and os.getenv("OPENAI_API_KEY")):
         try:
-            return summarize_with_openai(text)
-        except Exception as e:
-            # fallback
-            return extractive_summarize(text, max_sentences=max_sentences)
+            result = summarize_with_openai(text, max_tokens=500)
+            used_openai = True
+            return result, used_openai
+        except Exception:
+            # fallback to extractive
+            summary = extractive_summarize(text, max_sentences=max_sentences)
+            return summary, False
     else:
-        return extractive_summarize(text, max_sentences=max_sentences)
+        summary = extractive_summarize(text, max_sentences=max_sentences)
+        return summary, False
