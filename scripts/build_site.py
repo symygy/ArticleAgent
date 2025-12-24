@@ -115,7 +115,18 @@ def parse_post(md_text):
 def build_site(outputs_dir='outputs', docs_dir='docs'):
     os.makedirs(docs_dir, exist_ok=True)
     posts = []
-    for path in sorted(glob.glob(os.path.join(outputs_dir, '*.md')), reverse=True):
+    # Collect markdown files and sort by modification time (newest first)
+    paths = glob.glob(os.path.join(outputs_dir, '*.md'))
+    paths_with_mtime = []
+    for p in paths:
+        try:
+            mtime = os.path.getmtime(p)
+        except OSError:
+            mtime = 0
+        paths_with_mtime.append((p, mtime))
+    paths_sorted = [p for p, _ in sorted(paths_with_mtime, key=lambda x: x[1], reverse=True)]
+
+    for path in paths_sorted:
         name = os.path.basename(path)
         with open(path, 'r', encoding='utf-8') as f:
             md_text = f.read()
@@ -127,10 +138,11 @@ def build_site(outputs_dir='outputs', docs_dir='docs'):
         with open(out_path, 'w', encoding='utf-8') as f:
             f.write(TEMPLATE.format(title=parsed['title'], content=post_html))
         posts.append({'title': parsed['title'], 'date': parsed['date'], 'src': out_name, 'source': parsed['source'], 'excerpt': parsed['excerpt']})
-    # write index
+    # write index (posts are already newest-first)
     items = []
     for p in posts:
-        items.append(f"<li><a class=\"title\" href=\"{p['src']}\">{p['title']}</a><div class=\"meta\">{p['date']} — <a href=\"{p['source']}\">source</a></div><p>{p['excerpt']}</p></li>")
+        source_link = f"<a href=\"{p['source']}\">source</a>" if p['source'] else 'source'
+        items.append(f"<li><a class=\"title\" href=\"{p['src']}\">{p['title']}</a><div class=\"meta\">{p['date']} — {source_link}</div><p>{p['excerpt']}</p></li>")
     index_html = INDEX_TEMPLATE.format(items='\n'.join(items))
     with open(os.path.join(docs_dir, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(index_html)
