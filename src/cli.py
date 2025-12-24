@@ -3,6 +3,8 @@ import os
 import datetime
 import re
 import subprocess
+from dotenv import load_dotenv
+load_dotenv()
 from .fetcher import fetch_article
 from .summarizer import summarize
 

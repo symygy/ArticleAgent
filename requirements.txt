@@ -1,3 +1,5 @@
 requests
 beautifulsoup4
 openai  # optional: only required to use OpenAI summarizer
+markdown
+python-dotenv
