@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 
 
 def summarize_with_openai(text, max_tokens=500):
@@ -8,6 +9,8 @@ def summarize_with_openai(text, max_tokens=500):
     except Exception:
         raise RuntimeError("Pakiet `openai` nie jest zainstalowany. Zainstaluj go, aby użyć OpenAI.")
     api_key = os.getenv("OPENAI_API_KEY")
+    # Diagnostic: do not print the key, only whether it exists
+    print(f"[diagnostic] OPENAI_API_KEY present: {bool(api_key)}", file=sys.stderr)
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY nie jest ustawiony w środowisku.")
     openai.api_key = api_key
@@ -100,7 +103,9 @@ def summarize(text, method="auto", max_sentences=6):
             result = summarize_with_openai(text, max_tokens=500)
             used_openai = True
             return result, used_openai
-        except Exception:
+        except Exception as e:
+            # Log the exception to stderr for debugging (don't print API key)
+            print(f"[diagnostic] OpenAI summarization failed: {e}", file=sys.stderr)
             # fallback to extractive
             summary = extractive_summarize(text, max_sentences=max_sentences)
             return summary, False
