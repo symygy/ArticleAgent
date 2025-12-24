@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+.env
+
+# macOS
+.DS_Store
+
+# outputs (you may want to keep or ignore this)
+# outputs/
+
+# Editor
+.vscode/
+.idea/
