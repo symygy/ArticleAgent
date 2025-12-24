@@ -58,7 +58,13 @@ def main():
                 subprocess.run(["git", "commit", "-m", "chore: rebuild docs site"], check=False)
             except subprocess.CalledProcessError:
                 print("Nie udało się odbudować strony docs lokalnie.")
-            print("Stworzono lokalny commit. Wykonaj `git push` aby wysłać na zdalne repo.")
+            # push to remote
+            try:
+                subprocess.run(["git", "push", "origin", "HEAD:main"], check=True)
+                print("Wypchnięto zmiany na origin/main.")
+            except subprocess.CalledProcessError:
+                print("Nie udało się wypchnąć zmian. Wykonaj `git push` ręcznie.")
+            print("Stworzono lokalny commit.")
         except subprocess.CalledProcessError as e:
             print("Błąd podczas commitu git:", e)
 
