@@ -38,7 +38,7 @@ def git_commit(path, message=None):
 def main():
     parser = argparse.ArgumentParser(description="ArticleAgent CLI")
     parser.add_argument("url", help="URL artykułu do podsumowania")
-    parser.add_argument("--publish", action="store_true", help="Zapisz plik i zrób lokalny commit git")
+    parser.add_argument("--publish", action="store_true", help="Zapisz plik i zrób lokalny commit git (i odbuduj stronę docs)")
     parser.add_argument("--openai", action="store_true", help="Wymuś użycie OpenAI (wymaga OPENAI_API_KEY)")
     parser.add_argument("--sentences", "-n", type=int, default=6, help="Liczba kluczowych zdań w streszczeniu (dla ekstraktywnego)")
     args = parser.parse_args()
@@ -51,6 +51,13 @@ def main():
     if args.publish:
         try:
             git_commit(path)
+            # rebuild docs site
+            try:
+                subprocess.run(["python3", "scripts/build_site.py"], check=True)
+                subprocess.run(["git", "add", "docs"], check=True)
+                subprocess.run(["git", "commit", "-m", "chore: rebuild docs site"], check=False)
+            except subprocess.CalledProcessError:
+                print("Nie udało się odbudować strony docs lokalnie.")
             print("Stworzono lokalny commit. Wykonaj `git push` aby wysłać na zdalne repo.")
         except subprocess.CalledProcessError as e:
             print("Błąd podczas commitu git:", e)
