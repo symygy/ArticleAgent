@@ -4,6 +4,18 @@ import sys
 
 
 def summarize_with_openai(text, max_tokens=500):
+    """Support both legacy openai (pre-1.0) and new openai-python >=1.0 interfaces.
+
+    New interface example:
+      from openai import OpenAI
+      client = OpenAI()
+      resp = client.chat.completions.create(...)
+
+    Legacy interface example:
+      import openai
+      openai.api_key = ...
+      resp = openai.ChatCompletion.create(...)
+    """
     try:
         import openai
     except Exception:
@@ -13,19 +25,47 @@ def summarize_with_openai(text, max_tokens=500):
     print(f"[diagnostic] OPENAI_API_KEY present: {bool(api_key)}", file=sys.stderr)
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY nie jest ustawiony w środowisku.")
-    openai.api_key = api_key
+
     prompt = (
         "Przeczytaj poniższy tekst artykułu i przygotuj rozbudowane streszczenie. "
         "Najpierw daj streszczenie (kilka akapitów), potem sekcję 'Key points' jako wypunktowaną listę, "
         "a na końcu krótki akapit z wnioskami.\n\nTekst:\n" + text[:15000]
     )
-    resp = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=max_tokens,
-        temperature=0.2,
-    )
-    return resp["choices"][0]["message"]["content"].strip()
+
+    # Try new API first (openai>=1.0.0)
+    try:
+        if hasattr(openai, "OpenAI"):
+            # new-style client
+            try:
+                client = openai.OpenAI()
+            except TypeError:
+                # some versions might expect api_key argument, but typically uses env
+                client = openai.OpenAI(api_key=api_key)
+            resp = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=max_tokens,
+                temperature=0.2,
+            )
+            # response object may expose choices[0].message.content
+            try:
+                return resp.choices[0].message.content.strip()
+            except Exception:
+                # fallback to dict-like access
+                return resp["choices"][0]["message"]["content"].strip()
+
+        # Fallback to legacy API
+        resp = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=max_tokens,
+            temperature=0.2,
+        )
+        return resp["choices"][0]["message"]["content"].strip()
+
+    except Exception as e:
+        # Bubble up the original exception message for diagnostics in the caller
+        raise
 
 
 def extractive_summarize(text, max_sentences=6):
