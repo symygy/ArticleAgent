@@ -1,0 +1,153 @@
+# John Carreyrou and other authors bring new lawsuit against six major AI companies | TechCrunch
+
+- Source: https://techcrunch.com/2025/12/23/john-carreyrou-and-other-authors-bring-new-lawsuit-against-six-major-ai-companies/
+- Date: 2025-12-24
+
+## Summary
+
+In Brief
+Posted:
+11:02 AM PST · December 23, 2025
+Image Credits:
+Yuichiro Chino / Getty Images
+Amanda Silberling
+John Carreyrou and other authors bring new lawsuit against six major AI companies
+A group of writers, including Theranos whistleblower and “Bad Blood” author John Carreyrou, is filing a lawsuit against Anthropic, Google, OpenAI, Meta, xAI, and Perplexity, accusing the companies of training their models on pirated copies of their books. If this sounds familiar, it’s because another set of authors already filed a class action suit against Anthropic for these same acts of copyright infringement. In that case, the
+judge ruled
+that it was legal for Anthropic and similar AI companies to train on pirated copies of books, but that it was not legal to pirate the books in the first place. While eligible writers can receive about $3,000 from the $1.5 billion Anthropic settlement, some authors were
+dissatisfied
+with that resolution — it doesn’t hold AI companies accountable for the actual act of using stolen books to train their models, which generate
+billions of dollars
+in revenue. According to the new lawsuit, the plaintiffs say that the proposed Anthropic settlement “seems to serve [the AI companies], not creators.”
+“LLM companies should not be able to so easily extinguish thousands upon thousands of high-value claims at bargain-basement rates, eliding what should be the true cost of their massive willful infringement,” the lawsuit says. Waitlist Now
+Newsletters
+See More
+Subscribe for the industry’s biggest tech news
+Related
+Security
+OpenAI says AI browsers may always be vulnerable to prompt injection attacks
+Rebecca Bellan
+2 days ago
+AI
+ChatGPT: Everything you need to know about the AI-powered chatbot
+Kate Park
+Kyle Wiggers
+Cody Corrall
+Alyssa Stringer
+2 days ago
+AI
+Studio Ghibli and other Japanese publishers want OpenAI to stop training on their work
+Amanda Silberling
+Nov 3, 2025
+Latest in AI
+In Brief
+John Carreyrou and other authors bring new lawsuit against six major AI companies
+Amanda Silberling
+16 hours ago
+Venture
+Marissa Mayer’s new startup Dazzle raises $8M led by Forerunner’s Kirsten Green
+Marina Temkin
+18 hours ago
+Apps
+Amazon’s AI assistant Alexa+ now works with Angi, Expedia, Square, and Yelp
+Sarah Perez
+19 hours ago
+
+Key points:
+- Waitlist Now
+Newsletters
+See More
+Subscribe for the industry’s biggest tech news
+Related
+Security
+OpenAI says AI browsers may always be vulnerable to prompt injection attacks
+Rebecca Bellan
+2 days ago
+AI
+ChatGPT: Everything you need to know about the AI-powered chatbot
+Kate Park
+Kyle Wiggers
+Cody Corrall
+Alyssa Stringer
+2 days ago
+AI
+Studio Ghibli and other Japanese publishers want OpenAI to stop training on their work
+Amanda Silberling
+Nov 3, 2025
+Latest in AI
+In Brief
+John Carreyrou and other authors bring new lawsuit against six major AI companies
+Amanda Silberling
+16 hours ago
+Venture
+Marissa Mayer’s new startup Dazzle raises $8M led by Forerunner’s Kirsten Green
+Marina Temkin
+18 hours ago
+Apps
+Amazon’s AI assistant Alexa+ now works with Angi, Expedia, Square, and Yelp
+Sarah Perez
+19 hours ago
+- In Brief
+Posted:
+11:02 AM PST · December 23, 2025
+Image Credits:
+Yuichiro Chino / Getty Images
+Amanda Silberling
+John Carreyrou and other authors bring new lawsuit against six major AI companies
+A group of writers, including Theranos whistleblower and “Bad Blood” author John Carreyrou, is filing a lawsuit against Anthropic, Google, OpenAI, Meta, xAI, and Perplexity, accusing the companies of training their models on pirated copies of their books.
+- According to the new lawsuit, the plaintiffs say that the proposed Anthropic settlement “seems to serve [the AI companies], not creators.”
+“LLM companies should not be able to so easily extinguish thousands upon thousands of high-value claims at bargain-basement rates, eliding what should be the true cost of their massive willful infringement,” the lawsuit says.
+- While eligible writers can receive about $3,000 from the $1.5 billion Anthropic settlement, some authors were
+dissatisfied
+with that resolution — it doesn’t hold AI companies accountable for the actual act of using stolen books to train their models, which generate
+billions of dollars
+in revenue.
+- In that case, the
+judge ruled
+that it was legal for Anthropic and similar AI companies to train on pirated copies of books, but that it was not legal to pirate the books in the first place.
+- If this sounds familiar, it’s because another set of authors already filed a class action suit against Anthropic for these same acts of copyright infringement.
+
+Conclusions:
+
+Waitlist Now
+Newsletters
+See More
+Subscribe for the industry’s biggest tech news
+Related
+Security
+OpenAI says AI browsers may always be vulnerable to prompt injection attacks
+Rebecca Bellan
+2 days ago
+AI
+ChatGPT: Everything you need to know about the AI-powered chatbot
+Kate Park
+Kyle Wiggers
+Cody Corrall
+Alyssa Stringer
+2 days ago
+AI
+Studio Ghibli and other Japanese publishers want OpenAI to stop training on their work
+Amanda Silberling
+Nov 3, 2025
+Latest in AI
+In Brief
+John Carreyrou and other authors bring new lawsuit against six major AI companies
+Amanda Silberling
+16 hours ago
+Venture
+Marissa Mayer’s new startup Dazzle raises $8M led by Forerunner’s Kirsten Green
+Marina Temkin
+18 hours ago
+Apps
+Amazon’s AI assistant Alexa+ now works with Angi, Expedia, Square, and Yelp
+Sarah Perez
+19 hours ago In Brief
+Posted:
+11:02 AM PST · December 23, 2025
+Image Credits:
+Yuichiro Chino / Getty Images
+Amanda Silberling
+John Carreyrou and other authors bring new lawsuit against six major AI companies
+A group of writers, including Theranos whistleblower and “Bad Blood” author John Carreyrou, is filing a lawsuit against Anthropic, Google, OpenAI, Meta, xAI, and Perplexity, accusing the companies of training their models on pirated copies of their books. According to the new lawsuit, the plaintiffs say that the proposed Anthropic settlement “seems to serve [the AI companies], not creators.”
+“LLM companies should not be able to so easily extinguish thousands upon thousands of high-value claims at bargain-basement rates, eliding what should be the true cost of their massive willful infringement,” the lawsuit says.
+
